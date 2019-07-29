@@ -15,3 +15,8 @@ int main(){
     // answer++;
     return 0;
 }
+
+/* Answer to Exercise 3.1
+  - The compiler is programmed to ignore every line that comes after // notation in a single line
+  - Every thing inside /* notation in the whole code
+*/
