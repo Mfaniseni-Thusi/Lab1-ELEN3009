@@ -33,8 +33,9 @@ void Screen::back()
 }
 
 void Screen::up()
-{
-	if ( row() == 1 ) // at top
+{   // move cursor_ up one row of screen
+	// do not wrap around
+	if ( row() == 1 ) // at top?
 		end();
 	else
 		cursor_ -= width_;
@@ -53,7 +54,8 @@ void Screen::down(){
 }
 
 void Screen::move( string::size_type row, string::size_type col )
-{
+{   // move cursor_ to absolute position
+	// valid screen position?
 	if ( checkRange( row, col ) )
 	{
 		// row location
@@ -94,6 +96,7 @@ void Screen::move(Direction dir){
 
 char Screen::get( string::size_type row, string::size_type col )
 {
+	// position cursor_
 	move( row, col );
 	// the other get() member function
 	return get();                        // HOW IS THIS WORKING? get() vs get(row, col)
@@ -174,6 +177,7 @@ void Screen::display() const
 		string::size_type offset = width_ * xIndex; // row position
 		for ( string::size_type yIndex = 0; yIndex < width_; ++yIndex )
         {
+         // for each column, write element
 			cout << _screen[ offset + yIndex ];
         }
 		cout << endl;
