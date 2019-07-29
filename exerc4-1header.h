@@ -28,28 +28,18 @@ public:
 	// get the Screen's width
 	string::size_type width() const { return width_; }     // CONSTANT MEMBER FUNCTION this function cannot change anything inside itself
 
-	// place the cursor at the top-left corner of the screen
 	void home() { cursor_ = 0;  return; }
-	// place the cursor at the bottom-right corner of the screen
 	void end() { cursor_ = width_ * height_ - 1; return; }
-	// move the cursor one position to the right
 	void forward();
-	// move the cursor one position to the left
 	void back();
-	// move the cursor up one row
 	void up();
-	// move the cursor down one row
 	void down();
-	// move the cursor to the specified row and column
 	void move(string::size_type row, string::size_type col);
-	// takes direction as argument and moves the cursor to the direction required
 	enum Direction{UP, DOWN, FORWARD, BACK, HOME, END};
 
 	void move(Direction dir);
-	// get the character at the cursor's current position
 	char get() const { return _screen[cursor_]; }// CONSTANT MEMBER FUNCTION this function cannot change anything inside itself
                                                  // it's a read-only file
-	// get the character at the specified row and column
 	char get(string::size_type row, string::size_type col);
 
 	void set(char ch);
